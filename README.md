@@ -3,7 +3,7 @@
 
 It generates three pods and deploys then using their respective services.
 
-Nginx's HTTP Reverse proxy system helps to configure Domain-name such that all the three pods can be acessed with their respective domain names.
+Nginx's HTTP Reverse proxy system helps to configure Internal-IP and DNS such that all the three pods can be acessed with their respective domain names.
 
 
 
@@ -53,6 +53,25 @@ To test your deployed services go to the browser check if the pods are accesible
     http://pod2.example.com
     http://pod3.example.com
 ```
+
+## Configuring DNS
+
+Get service IP under External IP 
+```bash
+    kubectl get svc nginx-service
+```
+
+If you are working on Windows- go to your hosts file which must be 
+at `c:\Windows\System32\Drivers\etc\hosts`
+append the following (for eg if the external IP of your service is `127.0.0.1`)
+
+```bash
+  127.0.0.1 pod1.example.com
+  127.0.0.1 pod2.example.com
+  127.0.0.1 pod3.example.com
+```
+
+
 ## Documentation
 
 [Kubernetes](https://kubernetes.io/docs/home/)
