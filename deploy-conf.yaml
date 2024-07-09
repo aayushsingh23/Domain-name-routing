@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: d-nginx
+  labels:
+    app: d-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: d-nginx
+  template:
+    metadata:
+      labels:
+        app: d-nginx
+    spec:
+      containers:
+      - name: d-nginx
+        image: nginx
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config
