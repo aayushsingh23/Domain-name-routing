@@ -3,7 +3,7 @@
 
 It generates three pods and deploys then using their respective services.
 
-Nginx's HTTP Reverse proxy system helps to configure Domain-name routing such that all the three pods can be acessed with their respective domain names.
+Nginx's HTTP Reverse proxy system helps to configure Domain-name such that all the three pods can be acessed with their respective domain names.
 
 
 
